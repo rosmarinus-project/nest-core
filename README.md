@@ -11,3 +11,19 @@ npm i @rosmarinus/nest-core
 ```
 
 # Modules introduction
+
+1. Context
+
+Context 装饰器，会自动封装每个接口的上下文，比方说会封装用于该接口的 logger
+
+2. AllExceptionsFilter
+
+This module will capture global errors and return uniform results
+
+3. HeadersMiddleware
+
+This module will add Fcgi-Srtime and Request-Id to the headers of all returned results.
+
+4. RedisService and RedisModule
+
+This module encapsulates ioredis into a nest module

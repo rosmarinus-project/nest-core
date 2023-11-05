@@ -6,4 +6,6 @@ export * from './filter/error';
 
 export * from './middleware/headers';
 
-export * from './service/RedisService';
+export * from './service/redis.service';
+
+export * from './service/redis.module';
