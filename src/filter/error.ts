@@ -28,10 +28,14 @@ export function handleError(ctx: HttpArgumentsHost, err: ErrorMsg) {
 
 @Catch()
 export class AllExceptionsFilter<T extends ErrorCodeType> implements ExceptionFilter {
+  private readonly logger?: Logger;
+
   public constructor(
     private readonly defaultErrorCode: T,
-    private readonly logger?: Logger,
-  ) {}
+    logger?: Logger,
+  ) {
+    this.logger = logger;
+  }
 
   public catch(exception: ErrorMsg, host: ArgumentsHost) {
     const ctx = host.switchToHttp();
