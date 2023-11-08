@@ -10,7 +10,6 @@ export interface LoggerFactory {
 export function initLoggerFactory({ isProduction, logDir }: { isProduction: boolean; logDir?: string }): LoggerFactory {
   const logger = initFileLoggerFactory({
     isProduction,
-    defaultMeta: { service: 'user-service' },
     fileLevel: 'in-hour',
     logFileDir: logDir,
   }).defaultLogger;
