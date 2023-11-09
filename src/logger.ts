@@ -9,8 +9,8 @@ export interface LoggerFactory {
 
 export function initLoggerFactory({ isProduction, logDir }: { isProduction: boolean; logDir?: string }): LoggerFactory {
   const logger = initFileLoggerFactory({
-    isProduction,
-    fileLevel: 'in-hour',
+    fileMode: isProduction ? 'in-hour' : 'console',
+    fileLevel: 'info',
     logFileDir: logDir,
   }).defaultLogger;
 
