@@ -1,36 +1,42 @@
 import { Injectable } from '@nestjs/common';
-import { createConnection, Connection } from 'mysql';
+import { Pool, createPool, PoolOptions } from 'mysql2';
 
 export interface MysqlInitParams {
   address: string;
   username?: string;
   password: string;
   database?: string;
+  port?: number;
 }
 
 @Injectable()
 export class MysqlService {
-  private mysqlConn?: Connection;
+  private mysqlPool?: Pool;
 
-  public init(params: MysqlInitParams) {
-    this.mysqlConn = createConnection({
+  public init(params: MysqlInitParams, options?: PoolOptions) {
+    this.mysqlPool = createPool({
       host: params.address,
-      user: params.username || 'root',
+      port: params.port,
+      user: params.username,
       password: params.password,
       database: params.database,
+      waitForConnections: true,
+      connectionLimit: 10,
+      maxIdle: 10,
+      idleTimeout: 60000,
+      queueLimit: 0,
+      enableKeepAlive: true,
+      keepAliveInitialDelay: 0,
+      ...options,
     });
   }
 
   public async getMysqlClient() {
-    if (!this.mysqlConn) {
+    if (!this.mysqlPool) {
       throw new Error('mysql 未初始化');
     }
 
-    if (this.mysqlConn.state === 'disconnected') {
-      await this.connect();
-    }
-
-    return this.mysqlConn;
+    return this.mysqlPool;
   }
 
   public async query(sql: string): Promise<any> {
@@ -49,19 +55,7 @@ export class MysqlService {
 
   public async end() {
     return new Promise<void>((resolve, reject) => {
-      this.mysqlConn?.end((err) => {
-        if (err) {
-          return reject(err);
-        }
-
-        return resolve();
-      });
-    });
-  }
-
-  private async connect() {
-    return new Promise<void>((resolve, reject) => {
-      this.mysqlConn?.connect((err) => {
+      this.mysqlPool?.end((err) => {
         if (err) {
           return reject(err);
         }
