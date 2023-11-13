@@ -1,6 +1,12 @@
 # @rosmarinus/nest-core
 
-<a href="https://github.com/rosmarinus-project/nest-core/actions/workflows/publish.yml"><img src="https://github.com/rosmarinus-project/nest-core/actions/workflows/publish.yml/badge.svg" alt="build status"></a> <a href="https://pr.new/rosmarinus-project/nest-core"><img src="https://developer.stackblitz.com/img/start_pr_dark_small.svg" alt="Start new PR in StackBlitz Codeflow"></a>
+<p align="center">
+  <a href="https://www.npmjs.com/package/@rosmarinus/nest-core"><img src="https://img.shields.io/npm/v/@rosmarinus/nest-core" alt="npm package"></a>
+  <a href="https://github.com/rosmarinus-project/nest-core/actions/workflows/publish.yml"><img src="https://github.com/rosmarinus-project/nest-core/actions/workflows/publish.yml/badge.svg" alt="build status"></a>
+  <a href="https://pr.new/rosmarinus-project/nest-core"><img src="https://developer.stackblitz.com/img/start_pr_dark_small.svg" alt="Start new PR in StackBlitz Codeflow"></a>
+</p>
+
+ 
 
 This npm package contains some function encapsulation commonly used in development, which is more engineering-oriented.
 
@@ -14,7 +20,7 @@ npm i @rosmarinus/nest-core
 
 1. Context
 
-Context 装饰器，会自动封装每个接口的上下文，比方说会封装用于该接口的 logger
+Context decorator, will automatically encapsulate the context of each interface, for example, it will encapsulate the logger used for the interface
 
 2. AllExceptionsFilter
 
