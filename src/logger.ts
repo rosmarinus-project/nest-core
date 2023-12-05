@@ -1,4 +1,4 @@
-import { initFileLoggerFactory, type FileLogger } from '@rosmarinus/common-utils';
+import { initFileLoggerFactory, type FileLogger } from '@rosmarinus/node-utils';
 
 export type Logger = FileLogger;
 
