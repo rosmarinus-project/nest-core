@@ -5,7 +5,7 @@ import type { Request, Response } from 'express';
 export class HeadersMiddleware implements NestMiddleware {
   public use(req: Request, res: Response, next: (error?: Error) => void) {
     res.setHeader('Fcgi-Srtime', `${new Date().getTime()}`);
-    res.setHeader('Request-Id', req.get('Request-Id') || '');
+    res.setHeader('Request-Id', req.get('Request-Id') || req.get('request-id') || '');
     next();
   }
 }
