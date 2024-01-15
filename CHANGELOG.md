@@ -1,3 +1,9 @@
+## 2.0.0 (2024-01-15)
+
+* feat: change sql npm to knex wrap ([989936d](https://github.com/rosmarinus-project/nest-core/commit/989936d))
+
+
+
 ## <small>1.3.7 (2023-12-06)</small>
 
 * fix: move rid to prefix ([5d77ff0](https://github.com/rosmarinus-project/nest-core/commit/5d77ff0))

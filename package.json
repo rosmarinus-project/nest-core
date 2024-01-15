@@ -1,6 +1,6 @@
 {
   "name": "@rosmarinus/nest-core",
-  "version": "1.3.7",
+  "version": "2.0.0",
   "description": "nest core modules for rosmarinus projects",
   "main": "dist/cjs/index.js",
   "module": "dist/es/index.js",
