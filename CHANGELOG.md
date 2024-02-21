@@ -1,3 +1,9 @@
+## 2.1.0 (2024-02-21)
+
+* refactor: update to module and npm ([7d248c0](https://github.com/rosmarinus-project/nest-core/commit/7d248c0))
+
+
+
 ## 2.0.0 (2024-01-15)
 
 * feat: change sql npm to knex wrap ([989936d](https://github.com/rosmarinus-project/nest-core/commit/989936d))
